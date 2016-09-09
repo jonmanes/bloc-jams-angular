@@ -38,6 +38,11 @@
      height: 3rem;
      border-bottom: 1px solid rgba(255,255,255,0.5);
  }
+ .album-view-song-item-number {
+     height: 3rem;
+     padding-left: 5px;
+     border-bottom: 1px solid rgba(255,255,255,0.5);
+ }
  
  .song-item-number {
      width: 5%;
@@ -51,6 +56,10 @@
  .song-item-duration {
      width: 5%;
  }
+
+.album-song-number {
+    padding-left: 10px;
+}
 
 .album-song-button {
     text-align: center;

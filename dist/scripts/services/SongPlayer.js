@@ -42,9 +42,13 @@
             currentBuzzObject.bind('timeupdate', function() {
                 $rootScope.$apply(function() {
                     SongPlayer.currentTime = currentBuzzObject.getTime();
+                    if (SongPlayer.currentTime == song.duration) {
+                      SongPlayer.next();  
+                    };
                 });
             });
               
+            
             SongPlayer.currentSong = song;
           };          
 /**
@@ -167,6 +171,15 @@
           
           SongPlayer.changeVolume = function(volume){
               currentBuzzObject.setVolume(volume);
+          };
+         
+          SongPlayer.toggleMute = function(){
+              currentBuzzObject.toggleMute();
+              if (currentBuzzObject.isMuted() == true) {
+                  SongPlayer.currentSong.muted = true;
+              } else {
+                  SongPlayer.currentSong.muted = false;
+              };
           };
          
         return SongPlayer;
