@@ -5,7 +5,7 @@
  * @desc Plays and pauses the selected song based on current state
  * @param none
  */
-     function SongPlayer($rootScope, Fixtures) {
+     function SongPlayer(SharedScope, Fixtures) {
  /**
  * @desc place holder for the methods to control the song actions; pause, play, etc 
  * @type {Object}
@@ -40,7 +40,7 @@
             });
             
             currentBuzzObject.bind('timeupdate', function() {
-                $rootScope.$apply(function() {
+                SharedScope.$apply(function() {
                     SongPlayer.currentTime = currentBuzzObject.getTime();
                 });
             });
@@ -176,5 +176,5 @@
     
     angular
          .module('blocJams')
-         .factory('SongPlayer', ['$rootScope', 'Fixtures', SongPlayer]);
+         .factory('SongPlayer', ['SharedScope', 'Fixtures', SongPlayer]);
 })();
